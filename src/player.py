@@ -1,16 +1,17 @@
 import pygame
-from assets.bullet import Bullet
+from pygame.locals import *
+from bullet import Bullet
 
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self):
+    def __init__(self, screen_width, screen_height):
         super().__init__()
         self.original_image = pygame.image.load("assets/images/spaceship.png")
         self.image = pygame.transform.scale(self.original_image, (60, 60))
         self.rect = self.image.get_rect()
-        self.rect.centerx = 640
-        self.rect.bottom = 720
-        self.speed = 3
+        self.rect.centerx = screen_width // 2
+        self.rect.bottom = screen_height - 10
+        self.speed = 5
 
     def update(self):
         keys = pygame.key.get_pressed()

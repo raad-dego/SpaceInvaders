@@ -4,6 +4,11 @@
 
 # Ignore the virtual environment folder
 venv/
+env/
+
+# Ignore Pipenv files
+Pipfile
+Pipfile.lock
 
 # Ignore build artifacts
 __pycache__/
