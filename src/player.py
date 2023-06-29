@@ -8,10 +8,11 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.original_image = pygame.image.load("assets/images/spaceship.png")
         self.image = pygame.transform.scale(self.original_image, (60, 60))
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.centerx = screen_width // 2
         self.rect.bottom = screen_height - 10
-        self.speed = 5
+        self.speed = 7
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -32,3 +33,7 @@ class Player(pygame.sprite.Sprite):
     def shoot(self, bullets):
         bullet = Bullet(self.rect.centerx, self.rect.y)
         bullets.add(bullet)
+
+    def reset(self, screen_width, screen_height):
+        self.rect.centerx = screen_width // 2
+        self.rect.bottom = screen_height - 10

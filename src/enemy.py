@@ -7,6 +7,7 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__()
         self.original_image = pygame.image.load("assets/images/enemy.png").convert_alpha()
         self.image = pygame.transform.scale(self.original_image, (50, 50))
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.x = random.randint(0, screen_width - self.rect.width)
         self.rect.y = -screen_height

@@ -4,7 +4,8 @@ class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         self.original_image = pygame.image.load("assets/images/bullet.png").convert_alpha()
-        self.image = pygame.transform.scale(self.original_image, (20, 30))
+        self.image = pygame.transform.scale(self.original_image, (40, 40))
+        self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect()
         self.rect.midtop = (x, y)
         self.speed = 5
